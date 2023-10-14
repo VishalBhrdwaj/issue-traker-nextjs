@@ -4,14 +4,13 @@ import { Button, Table, TableBody, TableCell, TableColumnHeaderCell, TableHeader
 import Link from 'next/link'
 import prisma from '@/prisma/client'
 import IssueStatusBadge from '../components/IssueStatusBadge'
+import delay from 'delay'
 
 const IssuesPage = async () => {
+  await delay(2000);
   const issues=await prisma.issues.findMany();
   return (
     <div>
-      <div className='mb-5'>
-      <Button><Link href='/issues/new'>New Issue</Link></Button>
-      </div>
       <TableRoot variant='surface'>
           <TableHeader>
             <TableRow>
